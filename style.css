@@ -3,90 +3,78 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-.main{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-   
-}
-
 .firstDiv{
     display: flex;
     flex-direction: column;
-     gap: 10px;
+    gap: 10px;
 }
-
-.input input{
-    width: 250px;
-    height: 40px;
+input{
     padding: 10px;
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: 10px;
-    border-radius: 20px;
-    border: none;
+    font-size:15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
     border: 1px solid black;
 }
-.input button{
-    width: 100px;
-    padding: 14px;
+.btn{
+    padding: 11px;
     font-size: 15px;
-    font-weight: bold;
-    border-radius: 20px;
+    border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
-
-.secondDiv{
-    width: 700px;
-    display: flex;
-    justify-content: space-evenly;
+body{
+    height: 100vh;
+    width: 100vw;
+     display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 50px 0;
-     background-color: rgb(144, 204, 144);
-     padding: 20px;
-     border-radius: 20px;
+    text-align: center;
+    gap: 10px;
 }
 
-.secondDivHidden{
-    display: none;
-}
-.follow{
+
+.secondinner1{
     display: flex;
-    gap: 40px;
+    flex-direction: column;
+    gap: 15px;
 }
-
- img{
-    width: 250px;
-    aspect-ratio: 1;
-    border-radius: 170px;
-    border: 1px solid black;
-    margin-bottom: 15px;
-}
-
-.userfollow{
+.secondDivHidden{
+    width: 500px;
+    height: 300px;
     display: flex;
     justify-content: space-around;
-    flex-direction: column;
-    gap: 20px
-    
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgb(144, 215, 144);
 }
 
-.visit{
-    background-color: purple;
-    color: white;
-    margin-top: 20px;
+
+.secondDivHidden img{
+     width: 150px;
+     height: 150px;
+     border-radius: 50%;
+     object-fit: cover;
+}
+.secondDivHidden p{
     font-size: 20px;
-    padding: 15px;
-    border-radius: 20px;
-    border: none;
+    font-weight: bold;
+}
+.secondinner2{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.sec{
+    display: flex;
+    gap: 20px;
 }
 
-.visit a{
+#btn2{
+    padding:12px;
+    background-color: green;
     color: white;
-    text-decoration: none;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }

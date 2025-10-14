@@ -1,55 +1,50 @@
+
+
 let btn = document.querySelector(".btn");
+let btn2 = document.querySelector("#btn2");
 let userid = document.querySelector(".userid");
-
-async function fetchuser(username) {
-  
-        let response = await fetch(`https://api.github.com/users/${username}`);
-        let result = await response.json();
-        display(result);
-    
-}
-
-btn.addEventListener('click', () => {
-    let value = userid.value;
-    document.querySelector("#userprofile").classList.remove("secondDivHidden");
-     document.querySelector("#userprofile").classList.add("secondDiv")
-        fetchuser(value); 
-     
-});
-
-function display({avatar_url,name,bio,followers,following,public_repos,html_url}) {
-    if(!avatar_url){
-        document.querySelector(".userdetails").innerHTML="<h1>user not found<h1>"
-        return
+let img = document.querySelector(".img")
+let userprofile = document.querySelector("#userprofile");
+async function fetching(name){
+    let response=await fetch(`https://api.github.com/users/${name}`)
+    let result=await response.json()
+    console.log(result);
+    if(!result.login){
+        document.querySelector(".main").innerHTML="USER NOT FOUND"
     }
-
-    if(!bio){
-        bio='';
-    }
-    document.querySelector(".secondDiv").innerHTML = `
-        <div class="userinfo">
-            <img src="${avatar_url}"/>
-            <p>${name}</p>
-            <p> ${bio}</p>
-        </div>
-
-        <div class="userfollow">
-            <div class="follow">
+    userprofile.innerHTML=` <div class="secondinner1">
                 <div>
-                <p> followers</p>
-                <p> ${followers}</p>
+                    <img src=${result.avatar_url} alt="" class="img">
                 </div>
                 <div>
-                <p> following</p>
-                <p> ${following}</p>
+                    <div class="bio">${result.bio}</div>
                 </div>
-                <div>
-                <p> repo</p>
-                <p> ${public_repos}</p>
-                </div>
-                
             </div>
+            <div class="secondinner2">
+                  <div class="sec">
 
-            <div class="visit"><a href="${html_url}" target="_blank">Visit Profile</a></div>
-        </div>`;
+                     <div>
+                    <p>Followers</p>
+                    <p>${result.followers}</p>
+                   </div>
+
+                   <div>
+                    <p>Following</p>
+                    <p>${result.following}</p>
+                   </div>
+
+                   <div>
+                    <p>repo</p>
+                    <p>${result.public_repos}</p>
+                   </div>
+                 <div>
+                </div>
+
+                  </div>
+                    <a href=https://github.com/${name} target="_blank"><button id="btn2">Visit profile</button></a>
+                   </div>`
 }
+btn.addEventListener("click",()=>{
+    let val=userid.value
+    fetching(val)
+})
